@@ -18,5 +18,9 @@ node('masternode')
     stage('Continues-Testing') 
     {
         git 'https://github.com/balajimanipi/FunctionlTesting.git'
-    }      
+    }    
+    stage('Continues-Delivery') 
+    {
+        sh 'scp /var/lib/jenkins/workspace/D-pipeline/webapp/target/webapp.war root@192.168.75.132:/var/lib/tomcat9/webapps/testenv.war'
+    }
 }
