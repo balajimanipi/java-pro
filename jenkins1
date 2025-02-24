@@ -1,0 +1,22 @@
+node('masternode') 
+{
+    stage('Continues-Download') 
+    {
+        git 'https://github.com/balajimanipi/java-pro.git'
+    }
+    
+    stage('Continues-Build') 
+    {
+        sh 'mvn package'
+    }
+    
+    stage('Continues-Deploy') 
+    {
+        sh 'scp /var/lib/jenkins/workspace/D-pipeline/webapp/target/webapp.war root@192.168.75.130:/var/lib/tomcat9/webapps/testenv.war'
+    }
+    
+    stage('Continues-Testing') 
+    {
+        git 'https://github.com/balajimanipi/FunctionlTesting.git'
+    }      
+}
