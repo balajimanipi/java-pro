@@ -21,7 +21,7 @@ node('masternode')
     }    
     stage('Continues-Delivery') 
     {
-        input message: 'Waiting for approval from DM', submitter: 'ram'
+        input message: 'Waiting for approval from DM', submitter: 'Ram'
         sh 'scp /var/lib/jenkins/workspace/D-pipeline/webapp/target/webapp.war root@192.168.75.132:/var/lib/tomcat9/webapps/prodenv.war'
         
     }
